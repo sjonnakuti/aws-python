@@ -9,5 +9,5 @@ First, install pipenv. Then:
 
 ```shell
 pipenv install
-pipenv run "python meteors/find_meteors.py"
+pipenv run "python meteors/meteor-distance.py"
 ```
