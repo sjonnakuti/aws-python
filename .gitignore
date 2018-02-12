@@ -1,3 +1,5 @@
 Pipfile.lock
 .idea/
+meteors/__pycache__/
 venv/
+sample_python_project/meteors/__pycache__/
