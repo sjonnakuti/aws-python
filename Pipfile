@@ -7,16 +7,8 @@ name = "pypi"
 
 [packages]
 
-"boto3" = "*"
-click = "*"
 
 
 [dev-packages]
 
-ipython = "*"
-click = "*"
-
-
-[requires]
-
-python_version = "3.6"
+"boto3" = "*"
