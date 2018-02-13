@@ -2,4 +2,5 @@ Pipfile.lock
 .idea/
 meteors/__pycache__/
 venv/
+snapshotalyzer-3000/shotty/__pycache__/
 sample_python_project/meteors/__pycache__/

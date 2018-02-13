@@ -5,8 +5,32 @@ session = boto3.Session(profile_name='shotty')
 ec2 = session.resource('ec2')
 
 @click.group()
+def cli():
+    """Shotty manages snapshots"""
+
+@cli.group('volumes')
+def volumes():
+    """Commands for volumes"""
+
+@cli.group('instances')
 def instances():
     """Commands for instances"""
+
+@volumes.command('list')
+@click.option('--project',default=None, help='Only volumes for project ag Project:<name>)')
+def list_volumes(project):
+    "List Volumes"
+    instances = get_instances(project)
+    for i in instances:
+        for v in i.volumes.all():
+            print(', '.join((
+                v.id,
+                i.id,
+                v.state,
+                str(v.size)+"GiB",
+                v.encrypted and "Encrypted" or "Not Encrypted"
+            )))
+
 @instances.command('list')
 @click.option('--project', default=None, help='Only instances for project (ag Project:<name>)')
 def list_instances(project):
@@ -54,5 +78,5 @@ def start_instances(project):
         i.start()
 
 if __name__== '__main__':
-    instances()
+    cli()
 
